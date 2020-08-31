@@ -125,6 +125,7 @@ ul {
   background-color: rgb(255, 255, 255);
   margin-top: 250px;
   padding: 20px;
+  border-top: solid 9px #605707;
 }
 .row-page .row .Name {
   font-family: "Proza Libre", sans-serif;
@@ -166,4 +167,19 @@ ul {
 }
 .row-page .row .Nesting::before {
   content: "Nesting";
+}
+
+/***********************************/
+/*********** Navigation ************/
+/***********************************/
+.nav-button {
+  text-decoration: none;
+  color: #141414;
+  font-weight: bold;
+  margin: 12px 0;
+  display: inline-block;
+}
+
+.row-page .nav-button::before {
+  content: "← ";
 }
