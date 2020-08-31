@@ -20,46 +20,53 @@ const Index = ({ rows, pagination }) => {
 
   return (
     <div className="index-page">
-      {/* this needs to be refactored, shouldn't have check for window here */}
-      {process.env.HEADER_TITLE && <Header title={process.env.HEADER_TITLE} />}
+      <div className="layout-inner">
+        {/* this needs to be refactored, shouldn't have check for window here */}
+        {process.env.HEADER_TITLE && (
+          <Header title={process.env.HEADER_TITLE} />
+        )}
 
-      {hero}
+        {hero}
 
-      {rows.map(row => {
-        const slugField = _.find(row.fields, field => field.name === "Slug");
-        const slug =
-          (typeof window === "undefined" && slugField && slugField.value) ||
-          row.id;
+        {rows.map((row) => {
+          const slugField = _.find(
+            row.fields,
+            (field) => field.name === "Slug"
+          );
+          const slug =
+            (typeof window === "undefined" && slugField && slugField.value) ||
+            row.id;
 
-        return (
-          <LinkOrAnchor key={row.id} to={`/${slug}.html`}>
-            <Row
-              fieldsToDisplay={getFieldsToDisplay(
-                process.env.HOMEPAGE_FIELD_ORDER
-              )}
-              rowData={row}
-            />
-          </LinkOrAnchor>
-        );
-      })}
-      {pagination && (
-        <div>
-          {pagination.back ? (
-            <LinkOrAnchor className="nav-button" to={pagination.back}>
-              <span>← Previous</span>
+          return (
+            <LinkOrAnchor key={row.id} to={`/${slug}.html`}>
+              <Row
+                fieldsToDisplay={getFieldsToDisplay(
+                  process.env.HOMEPAGE_FIELD_ORDER
+                )}
+                rowData={row}
+              />
             </LinkOrAnchor>
-          ) : (
-            <div />
-          )}
-          {pagination.next ? (
-            <LinkOrAnchor className="nav-button" to={pagination.next}>
-              <span>Next →</span>
-            </LinkOrAnchor>
-          ) : (
-            <div />
-          )}
-        </div>
-      )}
+          );
+        })}
+        {pagination && (
+          <div>
+            {pagination.back ? (
+              <LinkOrAnchor className="nav-button" to={pagination.back}>
+                <span>← Previous</span>
+              </LinkOrAnchor>
+            ) : (
+              <div />
+            )}
+            {pagination.next ? (
+              <LinkOrAnchor className="nav-button" to={pagination.next}>
+                <span>Next →</span>
+              </LinkOrAnchor>
+            ) : (
+              <div />
+            )}
+          </div>
+        )}
+      </div>
     </div>
   );
 };
@@ -69,21 +76,21 @@ Index.propTypes = {
     PropTypes.shape({
       fields: PropTypes.arrayOf(
         PropTypes.shape({
-          name: PropTypes.string
+          name: PropTypes.string,
         })
       ),
-      name: PropTypes.string
+      name: PropTypes.string,
     })
   ),
   pagination: PropTypes.shape({
     back: PropTypes.string,
-    next: PropTypes.string
-  })
+    next: PropTypes.string,
+  }),
 };
 
 Index.defaultProps = {
   rows: [],
-  pagination: null
+  pagination: null,
 };
 
 export default Index;

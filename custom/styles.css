@@ -8,29 +8,25 @@ body {
   font-family: "Roboto Slab", serif;
   font-size: 1rem;
   color: rgb(96, 87, 2);
+  margin: 0;
 }
-
 a,
 a:hover {
   text-decoration: none;
   color: rgb(96, 87, 2);
 }
-
 p {
   margin: 0;
 }
-
 ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
-
-#root {
+.layout-inner {
   max-width: 900px;
   margin: 0 auto;
 }
-
 .field-name {
   display: none;
 }
@@ -40,17 +36,16 @@ ul {
 /***********************************/
 .site-title {
   font-family: "Proza Libre", sans-serif;
-  margin: 20px 0 0 0;
+  padding: 20px 0 0 0;
   font-size: 3rem;
   text-align: center;
+  margin: 0;
 }
-
 .site-description {
   font-family: "Proza Libre", sans-serif;
   font-size: 1.35rem;
   margin: 0 0 20px 0;
 }
-
 .site-about {
   background-color: #605705;
   margin-bottom: 10px;
@@ -78,17 +73,14 @@ ul {
   overflow-y: hidden;
   grid-template-rows: repeat(4, min-content);
 }
-
 .index-page .row:hover {
   grid-template-areas:
     "thumbnail name read"
     "thumbnail description read";
 }
-
 .index-page .row .Thumbnail {
   grid-area: thumbnail;
 }
-
 .index-page .row .Name {
   grid-area: name;
   font-family: "Proza Libre", sans-serif;
@@ -96,17 +88,14 @@ ul {
   margin: 20px 20px 0 20px;
   color: rgb(126, 115, 3);
 }
-
 .index-page .row .Description {
   grid-area: description;
   margin: 0 20px 20px 20px;
 }
-
 .index-page .row .Thumbnail img {
   width: 100%;
   display: block;
 }
-
 .index-page .row::before {
   content: "READ MORE";
   background-color: rgb(66, 88, 163);
@@ -123,4 +112,58 @@ ul {
   grid-column: last;
   grid-area: read;
   margin-left: 8px;
+}
+
+/***********************************/
+/************ Row Pages ************/
+/***********************************/
+.row-page {
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+}
+.row-page .row {
+  background-color: rgb(255, 255, 255);
+  margin-top: 250px;
+  padding: 20px;
+}
+.row-page .row .Name {
+  font-family: "Proza Libre", sans-serif;
+  font-size: 3rem;
+}
+.row-page .row .Description {
+  font-size: 1.5rem;
+  margin: 20px 0;
+}
+.row-page .row .Habitat,
+.row-page .row .FeedingBehavior,
+.row-page .row .Diet,
+.row-page .row .Eggs,
+.row-page .row .Nesting {
+  position: relative;
+  padding-top: 50px;
+}
+.row-page .row .Habitat::before,
+.row-page .row .FeedingBehavior::before,
+.row-page .row .Diet::before,
+.row-page .row .Eggs::before,
+.row-page .row .Nesting::before {
+  position: absolute;
+  top: 20px;
+  font-size: 1.25rem;
+  color: rgb(68, 62, 2);
+}
+.row-page .row .Habitat::before {
+  content: "Habitat";
+}
+.row-page .row .FeedingBehavior::before {
+  content: "Feeding Behavior";
+}
+.row-page .row .Diet::before {
+  content: "Diet";
+}
+.row-page .row .Eggs::before {
+  content: "Eggs";
+}
+.row-page .row .Nesting::before {
+  content: "Nesting";
 }
