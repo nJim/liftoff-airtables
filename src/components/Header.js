@@ -6,17 +6,17 @@ import LinkOrAnchor from "./LinkOrAnchor";
 const Header = ({ title }) => (
   <div className="header">
     <LinkOrAnchor className="header-link" to="/">
-      <h1>{title}</h1>
+      <h1 className="site-title">{title}</h1>
     </LinkOrAnchor>
   </div>
 );
 
 Header.propTypes = {
-  title: PropTypes.string
+  title: PropTypes.string,
 };
 
 Header.defaultProps = {
-  title: ""
+  title: "",
 };
 
 export default Header;

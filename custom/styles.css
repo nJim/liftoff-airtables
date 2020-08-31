@@ -4,7 +4,7 @@
 /********** Global Styles **********/
 /***********************************/
 body {
-  background-color: rgb(243, 240, 235);
+  background-image: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
   font-family: "Roboto Slab", serif;
   font-size: 1rem;
   color: rgb(96, 87, 2);
@@ -33,6 +33,34 @@ ul {
 
 .field-name {
   display: none;
+}
+
+/***********************************/
+/************* Header **************/
+/***********************************/
+.site-title {
+  font-family: "Proza Libre", sans-serif;
+  margin: 20px 0 0 0;
+  font-size: 3rem;
+  text-align: center;
+}
+
+.site-description {
+  font-family: "Proza Libre", sans-serif;
+  font-size: 1.35rem;
+  margin: 0 0 20px 0;
+}
+
+.site-about {
+  background-color: #605705;
+  margin-bottom: 10px;
+  color: #fff;
+  padding: 10px;
+}
+.site-about a {
+  color: #fff;
+  text-decoration: underline;
+  text-decoration-style: dotted;
 }
 
 /***********************************/
